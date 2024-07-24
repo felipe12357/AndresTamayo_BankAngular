@@ -1,0 +1,25 @@
+@import '../../constants.scss';
+.modal{
+    width:250px;
+    height:180px;
+    background-color: $color-grey-blue;
+    border-radius: 4px;
+    padding:20px;
+    margin: auto;
+    position: fixed;
+    top:20%;
+    left:40%;
+
+    &-message{
+        height:70%;
+        text-align: center;
+        padding-top: 10%;
+        box-sizing: border-box;
+        color:$color-white
+    }
+
+    &-buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+}

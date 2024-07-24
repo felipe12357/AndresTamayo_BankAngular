@@ -1,0 +1,25 @@
+@import '../../constants.scss';
+:host {
+    
+    >div{
+        position: absolute;
+        background-color: $color-grey-blue;
+        border-radius: 4px;
+        width:70px;
+        height: 100px;
+        top:20px;
+        left:-30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+
+        .icon-container {
+            display: flex;
+        }
+        .fa-2x{
+                color:$color-white !important;
+        }
+    }
+}
+

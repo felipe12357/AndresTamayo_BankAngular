@@ -1,0 +1,71 @@
+<form class="forms-container" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id" formControlName="id"
+            [ngClass]="{'invalid-input':productForm.get('id')?.status ==='INVALID' && productForm.get('id')?.touched,
+                         'input-disabled':productForm.get('id')?.status ==='DISABLED' }">
+        <div *ngIf="productForm.get('id')?.hasError('unique') && productForm.get('id')?.touched" class="error-message">
+            Id no valido
+        </div>
+        <div *ngIf="productForm.get('id')?.hasError('required') && productForm.get('id')?.touched" class="error-message">
+           Este campo es requerido
+        </div>
+        <div *ngIf="(productForm.get('id')?.hasError('minlength') || productForm.get('id')?.hasError('maxlength')) && productForm.get('id')?.touched" class="error-message">
+            La logitud del campo debe estar entre 5 y 10 caracteres
+         </div>
+    </div>
+
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" formControlName="name" 
+            [ngClass]="{'invalid-input':productForm.get('name')?.status ==='INVALID' && productForm.get('name')?.touched }">
+        <div *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched" class="error-message">
+            Este campo es requerido
+         </div>
+         <div *ngIf="(productForm.get('name')?.hasError('minlength') || productForm.get('name')?.hasError('maxlength')) && productForm.get('name')?.touched" class="error-message">
+            La logitud del campo debe estar entre 5 y 100 caracteres
+          </div>
+    </div>
+
+    <div>
+        <label for="descripcion">Descripcion</label>
+        <input type="text" id="descripcion" name="descripcion" formControlName="description"
+                [ngClass]="{'invalid-input':productForm.get('description')?.status ==='INVALID' && productForm.get('description')?.touched }" >
+        <div *ngIf="productForm.get('description')?.hasError('required') && productForm.get('description')?.touched" class="error-message">
+            Este campo es requerido
+         </div>
+         <div *ngIf="(productForm.get('description')?.hasError('minlength') || productForm.get('description')?.hasError('maxlength')) && productForm.get('description')?.touched" class="error-message">
+             La logitud del campo debe estar entre 10 y 200 caracteres
+          </div>
+    </div>
+
+   <div>
+        <label for="logo">Logo</label>
+        <input type="text" id="logo" name="logo" formControlName="logo"  
+                [ngClass]="{'invalid-input':productForm.get('logo')?.status ==='INVALID' && productForm.get('logo')?.touched }">
+        <div *ngIf="productForm.get('logo')?.hasError('required') && productForm.get('logo')?.touched" class="error-message">
+            Este campo es requerido
+         </div>
+   </div>
+
+    <div>
+        <label for="fliberacion">Fecha de Liberación</label>
+        <input type="date" id="fliberacion" name="fliberacion" [min]="mindate" formControlName="date_release"
+        [ngClass]="{'invalid-input':productForm.get('date_release')?.status ==='INVALID' && productForm.get('date_release')?.touched }">
+        <div *ngIf="productForm.get('date_release')?.hasError('required') && productForm.get('date_release')?.touched" class="error-message">
+            Este campo es requerido
+         </div>
+    </div>
+
+    <div>
+        <label for="frevision">Fecha de Revisión</label>
+        <input type="date" id="frevision" name="frevision" formControlName="date_revision"
+                [ngClass]="{'input-disabled':productForm.get('id')?.status ==='DISABLED'}" >
+    </div>
+    <div >
+        <button class="btn btn-blue" (click)="reset()" type="button" >Reiniciar</button>
+    </div>
+    <div>
+        <button class="btn" [ngClass]="{'btn-disabled': (productForm.status === 'INVALID')}" [disabled]="(productForm.status === 'INVALID')">Guardar</button>
+    </div>
+</form>

@@ -1,0 +1,103 @@
+@import '../../constants.scss';
+@import '../../mixmins.scss';
+
+:host{
+    display: grid;
+    margin: auto;
+    justify-content: center;
+    width: 100vw;
+
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: large;
+        padding:20px ;
+        align-items: center;
+    }
+    .table-container {
+        padding:20px;
+        background-color: $color-white;
+        border-radius: 4px;
+        overflow-x: auto;
+           
+            table{
+               width:80vw;
+
+                overflow-x: scroll;
+                border-collapse: collapse;
+                tr { 
+                    border-bottom: 2px solid $color-grey; 
+                }
+    
+                thead {
+                    text-align: center;
+                    font-size: large;
+    
+                    tr td{
+                        padding: 15px 0px;                    
+                    }
+    
+                    tr td:nth-child(2), tr td:nth-child(3) {
+                        text-align: left;
+                    } 
+    
+                }
+    
+                tbody {
+                    tr td{
+                        text-align: center;
+                        white-space: nowrap;
+                        box-sizing: border-box;
+                    }
+    
+                    tr td:nth-child(1) {
+                        display: flex;
+                        justify-content: center;
+                    } 
+    
+                    tr td:nth-child(2), tr td:nth-child(3) {
+                        text-align: left;
+                    } 
+                    
+                    :nth-child(6){
+                        width: 50px;
+                        cursor: pointer;
+                        position: relative;
+                    }
+                }
+            }
+
+
+
+
+        &-footer{
+            display: flex;
+            justify-content: space-between;
+            font-size: large;
+            padding:10px ;
+        }
+    }
+
+    .logo {
+        margin: 10px 0px;
+        width:3.4rem;
+        height: 3.4rem;
+        background-color: $color-grey-blue;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-white;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.8rem;
+    }
+
+    @media (max-width: 968px) {
+        .logo {
+          width: 2.5rem;
+          height: 2.5rem;
+          font-size: 1.5rem;
+        }
+      }
+}

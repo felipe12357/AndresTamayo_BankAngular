@@ -1,0 +1,18 @@
+
+@import '../../constants.scss';
+@import '../../mixmins.scss';
+
+:host{
+    div {
+        cursor: pointer;
+        @include container;
+        color: $color-blue;
+        background-color: $color-white;
+        align-items: center;
+
+        h1 {
+            margin-left: 10px;
+           
+        }
+    }
+}

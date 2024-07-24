@@ -1,0 +1,15 @@
+@import '../../mixmins.scss';
+@import '../../constants.scss';
+
+:host {
+    @include container;
+    padding-top: 50px;
+   
+    .container {
+        background-color: $color-white;
+        border-radius: 4px;
+        padding: 40px;
+        text-align: center;
+    }
+}
+

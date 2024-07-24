@@ -1,0 +1,49 @@
+
+<div class="table-header">
+    <div><input type="text" placeholder="search..." (keyup)="onKeyUp(searchInput.value)" #searchInput></div>
+    <div>           
+        <button class="btn" routerLink="create-product">Agregar</button>
+    </div>
+</div>
+<div class="table-container">
+
+        <table >
+            <thead>
+                <tr>
+                    <td>Logo</td>
+                    <td>Nombre del Producto</td>
+                    <td>Descripción</td>
+                    <td>Fecha de Liberación</td>
+                    <td>Fecha de Reestructuración</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody (click)="setShowMenu('',$event)">
+                <tr *ngFor="let product of productList$ | async; trackBy: trackByProductId">
+                    <td>
+                        <div class="logo">{{product.logo.substr(0,2)}}</div>
+                    </td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.date_release}}</td>
+                    <td>{{product.date_revision}}</td>
+                    <td> <div (click)="setShowMenu(product.id,$event)">...</div>
+                        <app-row-menu *ngIf="showMenu ===product.id"  (updateViewEvent)="deleteProduct($event)"
+                                      [url]="'products/update-product'" [id]="product.id" [name]="product.name"></app-row-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    <div class="table-container-footer">
+        <div>{{(productList$ | async)?.length }} Resultados</div>
+        <div>           
+            <select (change)="changeElementsXPage(pageSelect.value)" #pageSelect>
+                    <option > 5 </option>
+                    <option > 10 </option>
+                    <option > 15 </option>
+            </select>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

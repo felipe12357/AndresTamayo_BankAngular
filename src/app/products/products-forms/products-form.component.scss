@@ -1,0 +1,52 @@
+.forms-container{  
+    margin-top: 50px;  
+    display: grid;
+    justify-items: left;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    width:80vw;
+
+    label{
+        display: block;
+        text-align: left;
+    }
+    div{
+
+        width: 100%;
+        text-align:left
+    }
+    input{
+        width:80%;
+        
+    } 
+
+    >:nth-last-child(2){
+        display: flex;
+        justify-content: right;
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .forms-container {
+     grid-template-columns: 1fr;
+
+        .btn {
+            width:85%
+        }
+         >:nth-last-child(2){
+            display: flex;
+            justify-content: center;
+
+            width:85%;
+
+            .btn {
+                width:100%
+            }
+        }
+ 
+
+
+    }
+   
+  }

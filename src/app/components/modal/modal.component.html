@@ -1,0 +1,9 @@
+<div class="modal">
+    <div class="modal-message">{{ messageModal$ | async }}</div>
+    <hr>
+    <div class="modal-buttons">
+        <button class="btn btn-blue" (click)="cancel()" type="button" >Cancelar</button>
+        <button class="btn" (click)="continue()">Confirmar</button>
+    </div>
+</div>
+
