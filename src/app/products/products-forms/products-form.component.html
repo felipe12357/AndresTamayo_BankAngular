@@ -60,7 +60,7 @@
     <div>
         <label for="frevision">Fecha de Revisión</label>
         <input type="date" id="frevision" name="frevision" formControlName="date_revision"
-                [ngClass]="{'input-disabled':productForm.get('id')?.status ==='DISABLED'}" >
+                [ngClass]="{'input-disabled':productForm.get('date_revision')?.status ==='DISABLED'}" >
     </div>
     <div >
         <button class="btn btn-blue" (click)="reset()" type="button" >Reiniciar</button>

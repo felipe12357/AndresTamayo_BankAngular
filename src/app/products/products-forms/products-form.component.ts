@@ -56,8 +56,6 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
       if (idControl)
         idControl.disable();
     }
-
-    console.log(this.productForm.get('id')?.status,this.productForm.get('name')?.status);
   }
 
   fliberancionHandler(){
