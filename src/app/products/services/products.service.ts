@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, shareReplay, switchMap } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, shareReplay, switchMap, throwError } from 'rxjs';
 import { ProductsDTO,Product } from '../models/products.models';
 import { ValidatationServiceI } from 'src/app/utils/validators';
 
@@ -55,7 +55,12 @@ export class ProductsService implements ValidatationServiceI {
   }
 
   saveProduct(product:Product){
-    return this.http.post(`${URL}/products`,product);
+  
+    return this.http.post(`${URL}/products`,product).pipe(
+        catchError(error => {
+          console.error('Error saving product:', error);
+          return throwError(() => new Error('Error saving product.'));
+    }))
   }
 
   updateProduct(product:Product){    
