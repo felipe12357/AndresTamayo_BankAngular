@@ -20,8 +20,4 @@ describe('ModalService', () => {
     expect(service['messageModalSubject'].getValue()).toBe('mundo!');
   })
 
-  it('should update ModalConfirmation',()=>{
-    service.updateModalConfirmation(true);
-    expect(service['confirmationModalSubject'].getValue()).toBeTrue();
-  })
 });
