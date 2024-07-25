@@ -46,7 +46,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
   
   search(term:string){
-    return this.productList$ = this.productsService.searchProduct(term);
+    this.productList$ = this.productsService.searchProduct(term);
+    this.productsService.refresh();
   }
 
   setShowMenu(id:string,$event:MouseEvent){
