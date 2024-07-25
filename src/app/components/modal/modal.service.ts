@@ -12,7 +12,7 @@ export class ModalService {
   private messageModalSubject:BehaviorSubject<string> = new BehaviorSubject('');
   messageModal$ = this.messageModalSubject.asObservable();
 
-  private confirmationModalSubject:Subject<boolean> = new Subject();
+  private confirmationModalSubject:BehaviorSubject<boolean> = new BehaviorSubject(false);
   confirmationModal$ = this.confirmationModalSubject.asObservable();
 
   constructor() { 

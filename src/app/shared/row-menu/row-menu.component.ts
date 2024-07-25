@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { faPenSquare,faTrash } from '@fortawesome/free-solid-svg-icons';
 import { firstValueFrom } from 'rxjs';
@@ -6,7 +6,8 @@ import { ModalService } from 'src/app/components/modal/modal.service';
 @Component({
   selector: 'app-row-menu',
   templateUrl: './row-menu.component.html',
-  styleUrls: ['./row-menu.component.scss']
+  styleUrls: ['./row-menu.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class RowMenuComponent implements OnInit {
 

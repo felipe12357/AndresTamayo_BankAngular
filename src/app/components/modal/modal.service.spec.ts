@@ -13,4 +13,15 @@ describe('ModalService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should update messageModalSubject and showModalSubject values',()=>{
+    service.updateModalState(true,'mundo!');
+    expect(service['showModalSubject'].getValue()).toBeTrue();
+    expect(service['messageModalSubject'].getValue()).toBe('mundo!');
+  })
+
+  it('should update ModalConfirmation',()=>{
+    service.updateModalConfirmation(true);
+    expect(service['confirmationModalSubject'].getValue()).toBeTrue();
+  })
 });

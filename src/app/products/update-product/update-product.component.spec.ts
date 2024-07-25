@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UpdateProductComponent } from './update-product.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('UpdateProductComponent', () => {
   let component: UpdateProductComponent;
@@ -8,7 +11,9 @@ describe('UpdateProductComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateProductComponent ]
+      declarations: [ UpdateProductComponent ],
+      imports: [RouterTestingModule,HttpClientTestingModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 

@@ -70,7 +70,7 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
 
   reset(){
     this.productForm.get('date_revision')?.enable();
-    this.productForm.setValue({ id:'', name:'', description:'', logo:'', date_release:'', date_revision:'' })
+    this.productForm.setValue({ id:'', name:'', description:'', logo:'', date_release:null, date_revision:null })
 
     this.productForm.get('date_revision')?.disable();
 

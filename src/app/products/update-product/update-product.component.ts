@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',
-  styleUrls: ['./update-product.component.scss']
+  styleUrls: ['./update-product.component.scss'],
 })
 export class UpdateProductComponent implements OnInit {
 

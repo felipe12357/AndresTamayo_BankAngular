@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, debounceTime, distinctUntilChanged, firstValueFrom, Observable, switchMap } from 'rxjs';
 import { ProductsService } from '../services/products.service';
 import { Product } from '../models/products.models';
@@ -7,7 +7,8 @@ import { Product } from '../models/products.models';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProductListComponent implements OnInit, OnDestroy {
 
